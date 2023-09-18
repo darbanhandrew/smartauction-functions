@@ -1,0 +1,1684 @@
+{
+    "projectId": "smart_auction",
+    "projectName": "",
+    "functions": [
+        {
+            "$id": "afterUserCreation",
+            "name": "afterUserCreation",
+            "runtime": "node-18.0",
+            "path": "functions/afterUserCreation",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "users.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "listUserBids",
+            "name": "ListUserBids",
+            "runtime": "node-18.0",
+            "path": "functions/ListUserBids",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "setAndSendVerification",
+            "name": "setAndSendVerification",
+            "runtime": "node-18.0",
+            "path": "functions/setAndSendVerification",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "users.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "verifyCode",
+            "name": "verifyCode",
+            "runtime": "node-18.0",
+            "path": "functions/verifyCode",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "getAuctionRequest",
+            "name": "getAuctionRequest",
+            "runtime": "node-18.0",
+            "path": "functions/getAuctionRequest",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "processbid",
+            "name": "processbid",
+            "runtime": "node-18.0",
+            "path": "functions/processbid",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.smart_auction.collections.bid.documents.*.create"
+            ],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
+            "$id": "userFunctions",
+            "name": "userFunctions",
+            "runtime": "node-18.0",
+            "path": "functions/userFunctions",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "afterUserProfileUpdate",
+            "name": "afterUserProfileUpdate",
+            "runtime": "node-18.0",
+            "path": "functions/afterUserProfileUpdate",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.smart_auction.collections.user_profile.documents.*.update"
+            ],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "cronCloseAuctionArt",
+            "name": "cronCloseAuctionArt",
+            "runtime": "node-18.0",
+            "path": "functions/cronCloseAuctionArt",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "*/1 * * * *",
+            "timeout": 15
+        },
+        {
+            "$id": "getAuction",
+            "name": "getAuction",
+            "runtime": "node-18.0",
+            "path": "functions/getAuction",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "forgetPasswordVerify",
+            "name": "forgetPasswordVerify",
+            "runtime": "node-18.0",
+            "path": "functions/forgetPasswordVerify",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "auctionRequestStatus",
+            "name": "auctionRequestStatus",
+            "runtime": "node-18.0",
+            "path": "functions/auctionRequestStatus",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.smart_auction.collections.user_auction_request.documents.*.update"
+            ],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "getArtist",
+            "name": "getArtist",
+            "runtime": "node-18.0",
+            "path": "functions/getArtist",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "cronCloseAuction",
+            "name": "cronCloseAuction",
+            "runtime": "node-18.0",
+            "path": "functions/cronCloseAuction",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "getAuctionArt",
+            "name": "getAuctionArt",
+            "runtime": "node-18.0",
+            "path": "functions/getAuctionArt",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "updateArtistNumbers",
+            "name": "updateArtistNumbers",
+            "runtime": "node-18.0",
+            "path": "functions/updateArtistNumbers",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "cleanDatabase",
+            "name": "cleanDatabase",
+            "runtime": "node-18.0",
+            "path": "functions/cleanDatabase",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "search",
+            "name": "search",
+            "runtime": "node-18.0",
+            "path": "functions/search",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "testRealtime",
+            "name": "testRealtime",
+            "runtime": "node-18.0",
+            "path": "functions/testRealtime",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "sendNajvaNotification",
+            "name": "sendNajvaNotification",
+            "runtime": "node-18.0",
+            "path": "functions/sendNajvaNotification",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "*"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64ef160cd7360ce50c8b",
+            "name": "importArtists",
+            "runtime": "node-18.0",
+            "path": "functions/importArtists",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        }
+    ],
+    "collections": [
+        {
+            "$id": "bid",
+            "$createdAt": "2023-05-15T04:18:35.155+00:00",
+            "$updatedAt": "2023-05-15T05:01:30.666+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Bid",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "amount",
+                    "type": "integer",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "rejected",
+                        "pending",
+                        "accepted"
+                    ],
+                    "format": "enum",
+                    "default": "pending"
+                },
+                {
+                    "key": "auction_art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction_art",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "bid",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "user_id",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "user_profile",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "user_profile",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "bid",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "bid_step",
+            "$createdAt": "2023-05-15T04:20:27.186+00:00",
+            "$updatedAt": "2023-05-15T05:01:41.878+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Bid Step",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "start_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "end_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "step_size",
+                    "type": "double",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "bid_step_category",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid_step_category",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "bid_step",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "bid_step_category",
+            "$createdAt": "2023-05-15T04:22:12.619+00:00",
+            "$updatedAt": "2023-05-15T05:01:52.746+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Bid Step Category",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "bid_step",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid_step",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "bid_step_category",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "art_category",
+            "$createdAt": "2023-05-15T04:40:58.189+00:00",
+            "$updatedAt": "2023-05-15T04:57:36.559+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Art Category",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art_category",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "art_material",
+            "$createdAt": "2023-05-15T04:41:33.495+00:00",
+            "$updatedAt": "2023-05-15T04:57:47.016+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Art Material",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art_material",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "art_technique",
+            "$createdAt": "2023-05-15T04:42:06.892+00:00",
+            "$updatedAt": "2023-05-15T04:57:57.260+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Art Technique",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art_technique",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "artist",
+            "$createdAt": "2023-05-15T04:42:30.849+00:00",
+            "$updatedAt": "2023-05-15T04:58:13.705+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Artist",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "image",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "artist",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "auction",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction",
+                    "relationType": "manyToMany",
+                    "twoWay": true,
+                    "twoWayKey": "artist",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "banner",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "draft",
+                        "pending",
+                        "verified",
+                        "unverified"
+                    ],
+                    "format": "enum",
+                    "default": "verified"
+                },
+                {
+                    "key": "number_of_artworks",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "date_of_birth",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "date_of_death",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "biography",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 300,
+                    "default": null
+                },
+                {
+                    "key": "slug",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "number_of_auctions",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "art",
+            "$createdAt": "2023-05-15T04:43:17.867+00:00",
+            "$updatedAt": "2023-05-15T04:57:26.992+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Art",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "date_of_artwork",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "arthibition_code",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "artist",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "artist",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "art_material",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art_material",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "size",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "art_technique",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art_technique",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "art_category",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art_category",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "auction_art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction_art",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "image",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "signature",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "auction",
+            "$createdAt": "2023-05-15T04:44:29.666+00:00",
+            "$updatedAt": "2023-05-15T04:58:27.337+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Auction",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "start_date",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "end_date",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "auction_house",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction_house",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "bid_step_category",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid_step_category",
+                    "relationType": "manyToOne",
+                    "twoWay": false,
+                    "twoWayKey": "auction",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "started",
+                        "pending",
+                        "finished"
+                    ],
+                    "format": "enum",
+                    "default": "started"
+                },
+                {
+                    "key": "artist",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "artist",
+                    "relationType": "manyToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "collector_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": "Smart Auction"
+                },
+                {
+                    "key": "auction_art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction_art",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "gallery",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "thumbnails",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "banner",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "user_auction_request",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "user_auction_request",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "auction",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "auction_type",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "Time_Based",
+                        "Series"
+                    ],
+                    "format": "enum",
+                    "default": null
+                },
+                {
+                    "key": "slug",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "auction_art",
+            "$createdAt": "2023-05-15T04:45:45.379+00:00",
+            "$updatedAt": "2023-05-15T04:58:38.468+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Auction Art",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "lot",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "auction_start_date",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "auction_end_date",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "current_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "min_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "max_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "order",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "art",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "art",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction_art",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "bid",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "auction_art",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "bid_step_category",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid_step_category",
+                    "relationType": "manyToOne",
+                    "twoWay": false,
+                    "twoWayKey": "auction_art",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "auction",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction_art",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "number_of_bids",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "notes",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "not_started",
+                        "on_going",
+                        "closed"
+                    ],
+                    "format": "enum",
+                    "default": "not_started"
+                },
+                {
+                    "key": "slug",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "highest_bid",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid",
+                    "relationType": "oneToOne",
+                    "twoWay": false,
+                    "twoWayKey": "auctionArt",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "start_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                },
+                {
+                    "key": "end_price",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "auction_house",
+            "$createdAt": "2023-05-15T04:56:09.721+00:00",
+            "$updatedAt": "2023-05-15T04:57:13.625+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "Auction House",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "image",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "auction",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "auction_house",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "ongoing_auctions",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "live",
+                        "not_live"
+                    ],
+                    "format": "enum",
+                    "default": "live"
+                },
+                {
+                    "key": "last_auction_date",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "user_profile",
+            "$createdAt": "2023-05-21T07:33:52.524+00:00",
+            "$updatedAt": "2023-06-02T14:39:55.101+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "User Profile",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "first_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "last_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "phone_number",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "email",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "avatar",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "user_id",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "bid",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "bid",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "user_profile",
+                    "onDelete": "setNull",
+                    "side": "child"
+                },
+                {
+                    "key": "sheba",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "national_id_image",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "country",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "city",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "address",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "province",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "postal_code",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "accepted",
+                        "rejected",
+                        "pending",
+                        "not_filled"
+                    ],
+                    "format": "enum",
+                    "default": "not_filled"
+                },
+                {
+                    "key": "note",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "user_auction_request",
+            "$createdAt": "2023-05-21T07:36:56.812+00:00",
+            "$updatedAt": "2023-05-23T15:21:54.850+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "smart_auction",
+            "name": "User Auction Request",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "accepted",
+                        "rejected",
+                        "pending"
+                    ],
+                    "format": "enum",
+                    "default": "pending"
+                },
+                {
+                    "key": "note",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000,
+                    "default": null
+                },
+                {
+                    "key": "auction",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "auction",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "user_auction_request",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "user_profile",
+                    "type": "relationship",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "user_profile",
+                    "relationType": "manyToOne",
+                    "twoWay": false,
+                    "twoWayKey": "user_auction_request",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "user_id",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 30,
+                    "default": null
+                },
+                {
+                    "key": "referee_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "referee_phone",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        }
+    ]
+}
