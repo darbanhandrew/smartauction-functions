@@ -68,6 +68,10 @@ module.exports = async function (req, res) {
     auction_art.next_auction_art = next_auction_art;
     auction_art.previous_auction_art = previous_auction_art;
     auction_art.auction.auction_art.splice(current_auction_art_index, 1);
+    if(auction_art.art.date_of_artwork != null)
+    {
+      auction_art.date_of_artwork = new Date(auction_art.art.date_of_artwork).toLocaleDateString();
+    }
     res.json(auction_art);
   } catch (error) {
     console.error(error);

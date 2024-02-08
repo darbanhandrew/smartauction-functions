@@ -112,6 +112,98 @@
             "timeout": 60
         },
         {
+            "$id": "sendSmsToTopBidders",
+            "name": "sendSmsToTopBidders",
+            "runtime": "node-18.0",
+            "path": "functions/sendSmsToTopBidders",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
+            "$id": "sendWinnerSms",
+            "name": "sendWinnerSms",
+            "runtime": "node-18.0",
+            "path": "functions/sendWinnerSms",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
+            "$id": "sendOnFinishSms",
+            "name": "sendOnFinishSms",
+            "runtime": "node-18.0",
+            "path": "functions/sendOnFinishSms",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
+            "$id": "updateAuctionArt",
+            "name": "updateAuctionArt",
+            "runtime": "node-18.0",
+            "path": "functions/updateAuctionArt",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
+            "$id": "processBidManualUpdate",
+            "name": "processBidManualUpdate",
+            "runtime": "node-18.0",
+            "path": "functions/processBidManualUpdate",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm",
+                "package-lock.json"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.smart_auction.collections.bid.documents.*.update"
+            ],
+            "schedule": "",
+            "timeout": 60
+        },
+        {
             "$id": "userFunctions",
             "name": "userFunctions",
             "runtime": "node-18.0",
@@ -161,8 +253,8 @@
                 "any"
             ],
             "events": [],
-            "schedule": "*/1 * * * *",
-            "timeout": 15
+            "schedule": "*/10 * * * *",
+            "timeout": 150
         },
         {
             "$id": "getAuction",
@@ -339,7 +431,7 @@
                 ".npm"
             ],
             "execute": [
-                "*"
+                "any"
             ],
             "events": [],
             "schedule": "",
@@ -359,6 +451,44 @@
             "events": [],
             "schedule": "",
             "timeout": 15
+        },
+        {
+            "$id": "autoAcceptAuctionRequest",
+            "name": "autoAcceptAuctionRequest",
+            "runtime": "node-18.0",
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.smart_auction.collections.user_auction_request.documents.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "path": "functions/autoAcceptAuctionRequest",
+            "entrypoint": "src/index.js"
+        },
+        {
+            "$id": "bun-test",
+            "name": "bun-test",
+            "runtime": "bun-1.0",
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "src/main.ts",
+            "commands": "bun install",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "path": "functions/bun-test"
         }
     ],
     "collections": [

@@ -42,21 +42,21 @@ module.exports = async function (req, res) {
   console.stdlog("user: " + user);
   const user_profile = await database.getDocument('smart_auction', 'user_profile', user.prefs.profile_id);
   console.stdlog("user_profile: " + user_profile);
-  let full_name = user_profile.first_name + '_' + user_profile.last_name;
+  let full_name = user_profile.first_name + ' ' + user_profile.last_name;
   console.stdlog("full_name: " + full_name);
   let auction_request_status = user_auction_request.status;
   console.stdlog("auction_request_status: " + auction_request_status);
   let auction_name = user_auction_request.auction.name;
   //trim spaces of auction name and replace spaces with underscore
-  auction_name = auction_name.trim().replace(/\s/g, '_');
-  full_name = full_name.trim().replace(/\s/g, '_');
+  // auction_name = auction_name.trim().replace(/\s/g, '_');
+  // full_name = full_name.trim().replace(/\s/g, '_');
   if (auction_request_status == 'rejected') {
-    auction_request_status = 'رد_شد';
+    auction_request_status = 'رد';
   }
   else if (auction_request_status == 'accepted') {
-    auction_request_status = 'تایید_شد';
+    auction_request_status = 'تایید';
   }
-  https.get(`${KAVENEGAR_URL}${KAVENEGAR_API_TOKEN}/verify/lookup.json?receptor=${user_profile.phone_number}&token=${full_name}&token2=${auction_name}&token3=${auction_request_status}&template=smartauctionauctionreq`, (resp) => {
+  https.get(`${KAVENEGAR_URL}${KAVENEGAR_API_TOKEN}/verify/lookup.json?receptor=${user_profile.phone_number}&token10=${full_name}&token20=${auction_name}&token=${auction_request_status}&template=smartauctionauctionreq`, (resp) => {
     let data = '';
     // A chunk of data has been received.
     resp.on('data', (chunk) => {
@@ -67,7 +67,7 @@ module.exports = async function (req, res) {
       res.json({
         "status": "success",
         "data": JSON.parse(data),
-        "requestedURL": `${KAVENEGAR_URL}${KAVENEGAR_API_TOKEN}/verify/lookup.json?receptor=${user_profile.phone}&token=${full_name}&token2=${auction_name}&token3=${auction_request_status}&template=smartauctionauctionreq`,
+        "requestedURL": `${KAVENEGAR_URL}${KAVENEGAR_API_TOKEN}/verify/lookup.json?receptor=${user_profile.phone_number}&token10=${full_name}&token20=${auction_name}&token=${auction_request_status}&template=smartauctionauctionreq`,
         "message": "sms sent successfully"
       });
     });

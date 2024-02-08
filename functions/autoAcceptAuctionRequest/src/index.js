@@ -41,17 +41,9 @@ module.exports = async function (req, res) {
   }
   try {
     const payload = JSON.parse(req.variables['APPWRITE_FUNCTION_EVENT_DATA']);
-    const user_profile = await database.getDocument(payload.$databaseId, payload.$collectionId, payload.$id);
-    if (user_profile?.first_name && user_profile?.last_name && user_profile?.user_id && user_profile?.phone_number && user_profile?.email && user_profile?.national_id_image && (user_profile?.status == 'not_filled' || user_profile?.status == 'rejected')) {
-      const update_status = await database.updateDocument(payload.$databaseId, payload.$collectionId, payload.$id, {
-        status: 'accepted'
-      });
-    }
-    if (user_profile?.first_name && user_profile?.last_name && user_profile?.user_id) {
-      const full_name = user_profile.first_name + " " + user_profile.last_name;
-      const result = await users.updateName(user_profile.user_id, full_name);
-      res.json(result);
-    }
+    const user_auction_request_update = await database.updateDocument(payload.$databaseId, payload.$collectionId, payload.$id, {
+      status: 'accepted'
+    });
   } catch (error) {
     console.error(error);
     res.json({

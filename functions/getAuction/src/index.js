@@ -42,13 +42,24 @@ module.exports = async function (req, res) {
   try {
     const payload = JSON.parse(req.payload);
     let auction = await database.getDocument('smart_auction', 'auction', payload.$id);
-    if (payload.sort === 'cheapest') {
+    if (payload.sort === 'asc_current_price') {
       auction.auction_art.sort((a, b) => a.current_price - b.current_price);
-    } else if (payload.sort === 'most_expensive') {
+    } else if (payload.sort === 'desc_current_price') {
       auction.auction_art.sort((a, b) => b.current_price - a.current_price);
-    } else if (payload.sort === 'lot') {
+    } else if (payload.sort === 'asc_lot') {
       auction.auction_art.sort((a, b) => a.lot - b.lot);
     }
+    else if (payload.sort === 'desc_lot') {
+      auction.auction_art.sort((a, b) => b.lot - a.lot);
+    }
+    else if (payload.sort === 'asc_bid_count') {
+      auction.auction_art.sort((a, b) => a.number_of_bids - b.number_of_bids);
+    }
+    else if (payload.sort === 'desc_bid_count') {
+      auction.auction_art.sort((a, b) => b.number_of_bids - a.number_of_bids);
+    }
+    
+
     if (payload.filters) {
       if (payload.filters?.user_has_bid) {
         auction.auction_art = auction.auction_art.filter((art) => {

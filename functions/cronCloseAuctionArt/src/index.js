@@ -17,15 +17,9 @@ module.exports = async function (req, res) {
   const client = new sdk.Client();
 
   // You can remove services you don't use
-  const account = new sdk.Account(client);
-  const avatars = new sdk.Avatars(client);
   const database = new sdk.Databases(client);
   const functions = new sdk.Functions(client);
-  const health = new sdk.Health(client);
-  const locale = new sdk.Locale(client);
-  const storage = new sdk.Storage(client);
-  const teams = new sdk.Teams(client);
-  const users = new sdk.Users(client);
+
 
   if (
     !req.variables['APPWRITE_FUNCTION_ENDPOINT'] ||
@@ -59,8 +53,23 @@ module.exports = async function (req, res) {
           auction_art.$id,
           {
             status: 'closed',
+            end_price: auction_art.current_price
           }
         );
+        // add function to send sms async and use it here . the kavenegar template is smartauctionfinish
+        // the text is : 
+        /*
+        %token10 عزیز
+مدت زمان "%token" پایان یافت.
+
+اسمارت آکشن
+*/
+      const sendWinnerSmsPromise = functions.createExecution("sendWinnerSms",JSON.stringify({"auction_art":auction_art}),true);
+      const sendOnFinishSmsPromise = functions.createExecution("sendOnFinishSms", JSON.stringify({"auction_art":auction_art}),true);
+      await Promise.all([
+        sendWinnerSmsPromise,
+        sendOnFinishSmsPromise
+      ])
       }
       if (current_date < auction_start_date) {
         const result = await database.updateDocument(

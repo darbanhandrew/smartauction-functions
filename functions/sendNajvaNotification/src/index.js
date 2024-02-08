@@ -41,21 +41,21 @@ module.exports = async function (req, res) {
   }
   //send najva notification to specific user using user id . 
   // the token is stored in the user prefs najva_token_id and user_profile collection with the same user_id in attribute of najva_token_id
+  // const payload = JSON.parse(req.payload);
+  // const userId = payload.userId;
+  // const title = payload.title;
+  // const body = payload.body;
+  // const icon = payload.icon;
+  // const image = payload.image;
+  // const url = payload.url;
+  // const data = payload.data;
 
-  const userId = req.payload.userId;
-  const title = req.payload.title;
-  const body = req.payload.body;
-  const icon = req.payload.icon;
-  const image = req.payload.image;
-  const url = req.payload.url;
-  const data = req.payload.data;
+  // const user = await users.getPrefs(userId);
+  const token = "0e8f4e43-f69a-4b40-8f93-632a47394974";
 
-  const user = await users.getPrefs(userId);
-  const token = user.prefs.najva_token_id;
-
-  najva_api_token = req.variables['NAJVA_API_TOKEN'];
-  najva_api_url = req.variables['NAJVA_API_URL'];
-  najva_api_version = req.variables['NAJVA_API_VERSION'];
+  const najva_api_token = req.variables['NAJVA_API_TOKEN'];
+  const najva_api_url = req.variables['NAJVA_API_URL'];
+  const najva_api_version = req.variables['NAJVA_API_VERSION'];
   /*
   Body
 {
@@ -86,21 +86,30 @@ module.exports = async function (req, res) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Token ' + najva_api_token,
+      'Authorization': 'Token ' + "524e1ba28edee1a119fea85314d2f05669ea6a76",
+      'X-api-key': najva_api_token
     },
+    /*
+    {
+  "x-api-key": "your_api_key_here",
+  "title": "Your Notification Title",
+  "body": "Your Notification Body",
+  "onclick_action": 0,
+  "url": "https://your-notification-url.com"
+}
+`  */
     body: JSON.stringify({
-      api_key: najva_api_token,
-      subscriber_tokens: [token],
-      title: title,
-      body: body,
-      onclick_action: 'open_url',
-      url: url,
-      content: body,
-      // json: JSON.stringify(data),
-      // icon: icon,
-      // image: image,
-      sent_time: new Date().toISOString(),
-    }),
+  "x-api-key": najva_api_token,
+  "title": "Your Notification Title",
+  "body": "Your Notification Body",
+  "onclick_action": 0,
+  "url": "https://your-notification-url.com",
+  "utm":{},
+  "light_up_screen":true,
+  "buttons":[],
+  "subscribers":["651e1da9-2bd2-4ff6-b4e7-339f388b8672"]
+}
+),
   });
   const json = await response.json();
   console.log(json);

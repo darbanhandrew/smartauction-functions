@@ -39,5 +39,13 @@ module.exports = async function (req, res) {
       .setKey(req.variables['APPWRITE_FUNCTION_API_KEY'])
       .setSelfSigned(true);
   }
-  
+  /*
+  here is the steps that I want to do :
+  1. get all auctions that are open
+  2. check if the auction is expired
+  3. if the auction is expired, close the auction
+   3.1 get all related auction_art
+   3.2 get the highest bid
+  4. if the auction is not expired, do nothing
+  */
 };

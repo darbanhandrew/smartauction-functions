@@ -54,6 +54,19 @@ module.exports = async function (req, res) {
     const user_id = payload.body.user_id;
     result = await users[payload.type](user_id);
   }
+  else if (payload.type == "convertToUserDevice")
+  {
+    const userDocuments = await users.list([
+      sdk.Query.limit(1000)
+    ]);
+    await Promise.all(userDocuments.users.map(async (user) => {
+      const userToken = user.prefs?.najva_api_token
+      if(userToken)
+      {
+        await database.createDocument("smart_auction","user_device",sdk.ID.unique(),{user_id:user.$id,token:userToken});
+      }
+    }));
+  }
   else {
     result = await users[payload.type]();
   }

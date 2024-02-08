@@ -38,21 +38,24 @@ module.exports = async function (req, res) {
     sdk.Query.equal('user_id', user_id),
     sdk.Query.orderDesc('$createdAt')
   ]);
+  //
   // group the bids by auction art
-  const bids_by_art = user_bids.documents.map(bid => {
+  const bids_by_art = await Promise.all(user_bids.documents.map( async bid => {
     return {
+      artist_name: await getArtistName(bid.auction_art.art.$id,database),
       art_name: bid.auction_art.art.name,
       art_id: bid.auction_art.art.$id,
       auction: bid.auction_art.auction.name,
       auction_id: bid.auction_art.auction.$id,
       auction_art_id: bid.auction_art.$id,
+      auction_art_lot: bid.auction_art.lot,
       bid: bid.amount,
       date: bid.$createdAt,
       win_status: getBidStatus(bid),
       high_bid: bid.auction_art.high_bid.length > 0 ? [bid.auction_art.high_bid[0]] : null,
       status: bid.status,
     }
-  });
+  }));
   const last_bids = bids_by_art.reduce((acc, bid) => {
     if (!acc[bid.art_id]) {
       acc[bid.art_id] = bid;
@@ -73,4 +76,15 @@ function getBidStatus(bid) {
   } else {
     return 'lost';
   }
+}
+async function getArtistName(artId,database) {
+  //get art doc
+  const art = await database.getDocument('smart_auction', 'art', artId);
+  //artist is an array of artist objects, their name is artist.name, join them with comma
+  const artist_names = art.artist.map(artist => artist.name);
+  //check for null
+  if (artist_names.length == 0) {
+    return '';
+  }
+  return artist_names.join(', ');
 }
