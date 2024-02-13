@@ -77,9 +77,9 @@
         {
             "$id": "getAuctionRequest",
             "name": "getAuctionRequest",
-            "runtime": "node-18.0",
+            "runtime": "bun-1.0",
             "path": "functions/getAuctionRequest",
-            "entrypoint": "src/index.js",
+            "entrypoint": "src/main.ts",
             "ignore": [
                 "node_modules",
                 ".npm"
@@ -89,7 +89,10 @@
             ],
             "events": [],
             "schedule": "",
-            "timeout": 15
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "commands": "bun install"
         },
         {
             "$id": "processbid",

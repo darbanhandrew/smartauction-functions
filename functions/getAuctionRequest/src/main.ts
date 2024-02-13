@@ -1,5 +1,5 @@
-const sdk = require("node-appwrite");
-
+// const sdk = require("node-appwrite");
+import { Client, Databases } from 'node-appwrite';
 /*
   'req' variable has:
     'headers' - object with request headers
@@ -13,9 +13,12 @@ const sdk = require("node-appwrite");
   If an error is thrown, a response with code 500 will be returned.
 */
 
-module.exports = async function (req, res) {
+export default async function ({ req, res, log, error }) {
   const client = new sdk.Client();
-
+  const client = new Client()
+     .setEndpoint('https://cloud.appwrite.io/v1')
+     .setProject(Bun.env["APPWRITE_FUNCTION_PROJECT_ID"])
+     .setKey(Bun.env["APPWRITE_API_KEY"]);
   // You can remove services you don't use
   const database = new sdk.Databases(client);
 
